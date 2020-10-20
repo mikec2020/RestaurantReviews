@@ -57,10 +57,6 @@ namespace RestaurantReviews.Web.Controllers
                     return BadRequest(ModelState);
                 }
             }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(ex.Message);
-            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message);

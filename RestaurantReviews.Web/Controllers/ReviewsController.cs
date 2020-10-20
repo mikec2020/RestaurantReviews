@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviews.Web.Controllers
 {
-    [Route("api/reviews/")]
+    [Route("api/reviews")]
     [ApiController]
     public class ReviewsController : ControllerBase
     {
