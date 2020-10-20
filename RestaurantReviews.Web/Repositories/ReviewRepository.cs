@@ -61,9 +61,11 @@ namespace RestaurantReviews.Web.Repositories
         /// </summary>
         public async Task<IEnumerable<Review>> GetReviewsAsync(int userId)
         {
-            var user = await _context.Users.Include(u => u.Reviews.Where(r => r.Active == true)).SingleOrDefaultAsync(u => u.Id == userId);
+            var user = await _context.Users.Include(u => u.Reviews)
+                .ThenInclude(r => r.Restaurant)
+                .SingleOrDefaultAsync(u => u.Id == userId);
 
-            return user?.Reviews;
+            return user?.Reviews.Where(r => r.Active == true);
         }
 
         /// <summary>
@@ -71,9 +73,11 @@ namespace RestaurantReviews.Web.Repositories
         /// </summary>
         public async Task<IEnumerable<Review>> GetReviewsAsync(string username)
         {
-            var user = await _context.Users.Include(u => u.Reviews.Where(r => r.Active == true)).SingleOrDefaultAsync(u => u.Username == username);
+            var user = await _context.Users.Include(u => u.Reviews)
+                .ThenInclude(r => r.Restaurant)
+                .SingleOrDefaultAsync(u => u.Username == username);
 
-            return user?.Reviews;
+            return user?.Reviews.Where(r => r.Active == true);
         }
 
         /// <summary>

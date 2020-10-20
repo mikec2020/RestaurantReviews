@@ -23,7 +23,7 @@ namespace RestaurantReviews.Web.Repositories
 
             if (city != null)
             {
-                restaurants = restaurants.Where(r => r.City.Equals(city, StringComparison.OrdinalIgnoreCase));
+                restaurants = restaurants.Where(r => r.City == city).AsQueryable();
             }
 
             return await restaurants.ToListAsync();
