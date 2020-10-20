@@ -7,7 +7,10 @@
     [DateCreated]  DATETIME       CONSTRAINT [DF_DateCreated] DEFAULT (getutcdate()) NOT NULL,
     CONSTRAINT [PK_Reviews] PRIMARY KEY CLUSTERED ([ReviewId] ASC),
     CONSTRAINT [FK_Reviews_Restaurants] FOREIGN KEY ([RestaurantId]) REFERENCES [dbo].[Restaurants] ([RestaurantId]),
-    CONSTRAINT [FK_Reviews_Users] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId]),
-    CONSTRAINT [UK_Reviews] UNIQUE NONCLUSTERED ([UserId] ASC, [RestaurantId] ASC)
+    CONSTRAINT [FK_Reviews_Users] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId])
 );
 
+
+GO
+CREATE NONCLUSTERED INDEX [IX_UserId]
+    ON [dbo].[Reviews]([UserId] ASC);
