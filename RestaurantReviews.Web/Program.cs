@@ -18,6 +18,11 @@ namespace RestaurantReviews.Web
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging((context, builder) =>
+                {
+                    builder.ClearProviders();
+                    builder.AddDebug();
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
