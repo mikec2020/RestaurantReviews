@@ -12,7 +12,7 @@ namespace RestaurantReviews.Web.Data.Entities
 
         public int UserId { get; set; }
 
-        public string Text { get; set; }
+        public string Content { get; set; }
 
         public bool Active { get; set; }
 
