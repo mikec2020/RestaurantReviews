@@ -4,11 +4,11 @@ namespace RestaurantReviews.Web.Data.Entities
 {
     public class Review
     {
-        public int Id { get; set; }
+        public int Id { get; }
 
         public int RestaurantId { get; set; }
 
-        public Restaurant Restaurant { get; set; }
+        public Restaurant Restaurant { get; }
 
         public int UserId { get; set; }
 
