@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestaurantReviews.Web.Data.Entities;
 using RestaurantReviews.Web.Exceptions;
+using RestaurantReviews.Web.Models;
 using RestaurantReviews.Web.Repositories;
 using System;
 using System.Threading.Tasks;
@@ -24,21 +25,24 @@ namespace RestaurantReviews.Web.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(Review), StatusCodes.Status200OK)]
-        public async Task<IActionResult> CreateReviewAsync([FromBody] Review r)
-        {
+        public async Task<IActionResult> CreateReviewAsync([FromBody] ReviewPostRequest request)
+        {          
             try
             {
-                var review = await _repository.CreateReviewAsync(r.RestaurantId, r.UserId, r.Content);
+                if (ModelState.IsValid)
+                {
+                    var review = await _repository.CreateReviewAsync(request.RestaurantId, request.UserId, request.Content);
 
-                return Ok(review);
-            }
-            catch (ArgumentException)
-            {
-                return BadRequest();
+                    return Ok(review);
+                }
+                else
+                {
+                    return BadRequest();
+                }
             }
             catch (Exception ex) when (ex is RestaurantNotFoundException || ex is UserNotFoundException)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
             catch (Exception ex)
             {

@@ -23,11 +23,6 @@ namespace RestaurantReviews.Web.Repositories
         /// </summary>
         public async Task<Review> CreateReviewAsync(int restaurantId, int userId, string content)
         {
-            if (String.IsNullOrWhiteSpace(content))
-            {
-                throw new ArgumentException();
-            }
-
             var restaurant = await _context.Restaurants.SingleOrDefaultAsync(r => r.Id == restaurantId);
 
             if (restaurant == null)

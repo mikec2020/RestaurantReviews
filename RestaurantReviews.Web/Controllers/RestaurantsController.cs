@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestaurantReviews.Web.Data.Entities;
+using RestaurantReviews.Web.Models;
 using RestaurantReviews.Web.Repositories;
 using System;
 using System.Collections.Generic;
@@ -41,13 +42,24 @@ namespace RestaurantReviews.Web.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(Restaurant), StatusCodes.Status200OK)]
-        public async Task<IActionResult> CreateRestaurantAsync([FromBody] Restaurant r)
+        public async Task<IActionResult> CreateRestaurantAsync([FromBody] RestaurantPostRequest request)
         {
             try
             {
-                var restaurant = await _repository.CreateRestaurantAsync(r.Name, r.Address, r.City, r.State, r.ZipCode);
+                if (ModelState.IsValid)
+                {
+                    var restaurant = await _repository.CreateRestaurantAsync(request.Name, request.Address, request.City, request.State, request.ZipCode);
 
-                return Ok(restaurant);
+                    return Ok(restaurant);
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
