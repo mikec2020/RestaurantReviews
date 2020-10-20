@@ -36,12 +36,12 @@ namespace RestaurantReviews.Web.Controllers
                 }
                 else
                 {
-                    return BadRequest();
+                    return BadRequest(ModelState);
                 }
             }
             catch (Exception ex) when (ex is RestaurantNotFoundException || ex is UserNotFoundException)
             {
-                return NotFound(ex.Message);
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
