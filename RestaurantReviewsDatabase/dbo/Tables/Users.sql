@@ -9,6 +9,4 @@
 
 
 GO
-CREATE NONCLUSTERED INDEX [IX_Username]
-    ON [dbo].[Users]([Username] ASC);
 
