@@ -1,18 +1,14 @@
-﻿using System;
+﻿using RestaurantReviews.Web.Data.Entities;
 
-namespace RestaurantReviews.Web.Exceptions
+namespace RestaurantReviews.Web
 {
-    public class UserNotFoundException : Exception
+    public class UserNotFoundException : NotFoundException<User>
     {
-        private readonly string _message = "User not found";
-        
         public UserNotFoundException() { }
 
         public UserNotFoundException(int userId)
         {
             _message = $"No user found for ID { userId }";
         }
-        
-        public override string Message => _message;
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestaurantReviews.Web.Data;
 using RestaurantReviews.Web.Data.Entities;
-using RestaurantReviews.Web.Exceptions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

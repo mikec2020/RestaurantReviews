@@ -1,18 +1,14 @@
-﻿using System;
+﻿using RestaurantReviews.Web.Data.Entities;
 
 namespace RestaurantReviews.Web
 {
-    public class RestaurantNotFoundException : Exception 
+    public class RestaurantNotFoundException : NotFoundException<Restaurant>
     {
-        private readonly string _message = "Restaurant not found";
-
         public RestaurantNotFoundException() { }
 
         public RestaurantNotFoundException(int restaurantId)
         {
             _message = $"No restaurant found for ID { restaurantId }";
         }
-
-        public override string Message => _message;
     }
 }

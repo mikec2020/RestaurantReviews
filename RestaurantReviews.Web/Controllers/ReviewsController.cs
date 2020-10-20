@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestaurantReviews.Web.Data.Entities;
-using RestaurantReviews.Web.Exceptions;
 using RestaurantReviews.Web.Models;
 using RestaurantReviews.Web.Repositories;
 using System;
