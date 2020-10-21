@@ -7,6 +7,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RestaurantReviewsDatabase",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.Web", "RestaurantReviews.Web\RestaurantReviews.Web.csproj", "{AF96986E-DC3A-4EF7-8515-391D2B9EA8BE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.Web.Tests", "RestaurantReviews.Web.Tests\RestaurantReviews.Web.Tests.csproj", "{C11C266F-0288-45E0-851D-01F61900CAFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{AF96986E-DC3A-4EF7-8515-391D2B9EA8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF96986E-DC3A-4EF7-8515-391D2B9EA8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF96986E-DC3A-4EF7-8515-391D2B9EA8BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C11C266F-0288-45E0-851D-01F61900CAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C11C266F-0288-45E0-851D-01F61900CAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C11C266F-0288-45E0-851D-01F61900CAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C11C266F-0288-45E0-851D-01F61900CAFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
